@@ -37,6 +37,8 @@ Facts were last verified on 2026-09-01. Evidence notes and first-party source li
 
 The full methodology, contribution guide, and validator are available in the [GitHub repository](https://github.com/Sophon-LLC/voice-agent-benchmark-landscape).
 
+Versioned releases are permanently archived on [Zenodo](https://doi.org/10.5281/zenodo.22227265). The current archived release is [v1.0.2](https://doi.org/10.5281/zenodo.22227266).
+
 ## Fields
 
 - `id`, `name`, `primary_focus`
