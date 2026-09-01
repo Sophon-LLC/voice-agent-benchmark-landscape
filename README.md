@@ -1,5 +1,7 @@
 # Voice Agent Benchmark Landscape
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22227265.svg)](https://doi.org/10.5281/zenodo.22227265)
+
 An open, structured map of public benchmarks for voice agents, spoken assistants, speech-enabled tool use, computer action, ASR, and meeting understanding.
 
 The landscape exists because “voice agent evaluation” currently covers several different problems that are easy to conflate. A benchmark may test speech recognition without testing task completion, or test tool calls without testing a live spoken interaction. This project makes those boundaries explicit.
@@ -52,6 +54,8 @@ Run the validator with:
 ```bash
 npm run check
 ```
+
+Versioned releases are permanently archived on [Zenodo](https://doi.org/10.5281/zenodo.22227265). Cite the version-specific DOI when exact reproducibility matters; use the concept DOI for the evolving project.
 
 ## Practical guides
 

@@ -6,6 +6,7 @@ authors:
   - name: "Sophon LLC"
 repository-code: "https://github.com/Sophon-LLC/voice-agent-benchmark-landscape"
 url: "https://huggingface.co/datasets/chatjesus/voice-agent-benchmark-landscape"
+doi: "10.5281/zenodo.22227266"
 license: MIT
 version: 1.0.2
 date-released: 2026-09-01
