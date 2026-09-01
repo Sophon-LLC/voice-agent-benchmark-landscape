@@ -18,7 +18,7 @@ The landscape exists because “voice agent evaluation” currently covers sever
 | [OpenBench](https://github.com/argmaxinc/OpenBench) | Reproducible ASR, diarization, and streaming benchmarks | Yes | No | No | No | No | No | Yes |
 | [mu-bench](https://github.com/sierra-research/mu-bench) | Multilingual customer-service ASR | Yes | No | No | No | No | No | No |
 | [ELITR-Bench](https://github.com/utter-project/ELITR-Bench) | Long-context LLM evaluation on meeting transcripts | No | No | Yes | No | Partial | No | Yes |
-| [Audio Agent Bench Suite](https://huggingface.co/datasets/arcada-labs/audio-agent-bench-suite) | Multi-turn spoken-agent benchmark collection | Yes | Partial | Yes | Yes | Partial | No | No |
+| [Audio Agent Bench Suite](https://huggingface.co/datasets/arcada-labs/audio-agent-bench-suite) | Multi-turn spoken-agent benchmark collection | Yes | Unclear | Yes | Yes | Partial | No | No |
 
 “Partial” means the capability appears in part of the suite or is evaluated indirectly. It does not mean weaker performance.
 
@@ -48,6 +48,11 @@ Run the validator with:
 ```bash
 npm run check
 ```
+
+## Practical guides
+
+- [Choosing a Voice Agent Benchmark](docs/CHOOSING_A_VOICE_AGENT_BENCHMARK.md) separates evaluation plans for action-taking voice agents, desktop voice typing, and meeting transcription.
+- [Source Audit](docs/SOURCE_AUDIT.md) records the first-party capability and license evidence behind each row.
 
 ## Inclusion criteria
 

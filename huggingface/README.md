@@ -45,6 +45,16 @@ The full methodology, contribution guide, and validator are available in the [Gi
 - `github_url`, `huggingface_url`, `paper_url`
 - `last_verified`, `evidence_notes`
 
+## How to use the landscape
+
+Start with the user outcome rather than selecting a benchmark by name:
+
+- **Action-taking voice agents:** combine task completion with tool accuracy, live interaction quality, recovery, confirmation, and side-effect safety. VoiceAgentBench, EVA, TalkAct, and tau2-bench cover complementary parts of this stack.
+- **Voice typing and dictation:** combine ASR and streaming measures with semantic errors, entity accuracy, formatting, correction burden, and application insertion reliability. OpenBench and mu-bench are useful public starting points, but neither replaces product-specific desktop tests.
+- **Meeting transcription:** measure capture, diarization, transcript accuracy, and grounded meeting understanding separately. OpenBench and ELITR-Bench address different layers of this problem.
+
+The full [benchmark selection guide](https://github.com/Sophon-LLC/voice-agent-benchmark-landscape/blob/main/docs/CHOOSING_A_VOICE_AGENT_BENCHMARK.md) and [source audit](https://github.com/Sophon-LLC/voice-agent-benchmark-landscape/blob/main/docs/SOURCE_AUDIT.md) explain the tradeoffs and evidence behind each row.
+
 ## Maintainer
 
 Maintained by [Sophon LLC](https://github.com/Sophon-LLC), makers of [Cue](https://heycue.io) — a desktop voice agent for voice typing, meeting transcription, and cross-app action. Free to start + Cue Plus $19.99/month.
