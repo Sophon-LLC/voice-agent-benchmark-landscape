@@ -11,11 +11,15 @@ The landscape exists because “voice agent evaluation” currently covers sever
 | Benchmark | Primary focus | Spoken input | Spoken output | Multi-turn | Tool use | Goal completion | Computer/browser action | Meeting/long-form |
 |---|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | [VoiceAgentBench](https://github.com/ola-krutrim/VoiceAgentBench) | Speech-based tool tasks and safety | Yes | No | Yes | Yes | Partial | No | No |
+| [Audio2Tool](https://huggingface.co/datasets/RVtech/Audio2Tool) | Spoken tool-call selection across eight difficulty tiers | Yes | No | Partial | Yes | No | No | No |
 | [EVA](https://github.com/ServiceNow/eva) | End-to-end conversational voice-agent accuracy and experience | Yes | Yes | Yes | Yes | Yes | No | No |
 | [VoiceAssistant-Eval](https://github.com/mathllm/VoiceAssistant-Eval) | General voice-assistant listening, speaking, viewing, and safety | Yes | Yes | Yes | No | No | No | No |
+| [VoiceBench](https://github.com/MatthewCYM/VoiceBench) | Instruction following, knowledge, reasoning, and safety | Yes | No | Partial | No | No | No | No |
 | [VoiceComputerBench / TalkAct](https://github.com/19PINE-AI/TalkAct) | Real-time voice conversation plus browser action | Yes | Yes | Yes | Yes | Yes | Yes | No |
 | [tau2-bench / tau-Voice](https://github.com/sierra-research/tau2-bench) | Tool-agent-user interaction in real-world domains | Yes | Yes | Yes | Yes | Yes | No | No |
+| [NVIDIA NeMo Voice Agent Evaluation](https://github.com/NVIDIA-NeMo/labs-Voice-Agent) | Live evaluation harness over EVA and tau2 scenarios | Yes | Yes | Yes | Yes | Yes | No | No |
 | [OpenBench](https://github.com/argmaxinc/OpenBench) | Reproducible ASR, diarization, and streaming benchmarks | Yes | No | No | No | No | No | Yes |
+| [OpenBenchmarks Voice Agent Latency](https://github.com/openbenchmarks-labs/voice-agent-latency) | Caller-perceived latency from real phone-call audio | Yes | Yes | Yes | No | No | No | No |
 | [mu-bench](https://github.com/sierra-research/mu-bench) | Multilingual customer-service ASR | Yes | No | No | No | No | No | No |
 | [ELITR-Bench](https://github.com/utter-project/ELITR-Bench) | Long-context LLM evaluation on meeting transcripts | No | No | Yes | No | Partial | No | Yes |
 | [Audio Agent Bench Suite](https://huggingface.co/datasets/arcada-labs/audio-agent-bench-suite) | Multi-turn spoken-agent benchmark collection | Yes | Unclear | Yes | Yes | Partial | No | No |
@@ -24,7 +28,7 @@ The landscape exists because “voice agent evaluation” currently covers sever
 
 ## What is still under-measured
 
-The public landscape is strongest in conversational customer service, spoken tool selection, and ASR. It is much thinner at the intersection of:
+The public landscape is strongest in conversational customer service, spoken tool selection, voice-assistant content evaluation, and ASR. It is much thinner at the intersection of:
 
 - continuous desktop voice typing in arbitrary applications;
 - long-form meeting transcription and structured notes;
@@ -59,6 +63,8 @@ npm run check
 A project is included when it has a public benchmark, evaluation framework, or dataset and directly addresses at least one of these areas: spoken interaction, speech-to-tool behavior, voice-computer interaction, meeting understanding, streaming transcription, or voice-agent safety.
 
 The list is deliberately not a catalog of commercial voice-agent products. It also excludes private evaluations that cannot be inspected.
+
+Public leaderboards with incomplete scenario or artifact access are tracked as candidates rather than silently treated as reproducible benchmarks. For example, VAmoS Bench is relevant to stateful phone-call completion, but its public agent implementations and paper do not currently expose the complete benchmark corpus and runner needed for an independent rerun.
 
 ## Contributing
 

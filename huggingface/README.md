@@ -49,8 +49,8 @@ The full methodology, contribution guide, and validator are available in the [Gi
 
 Start with the user outcome rather than selecting a benchmark by name:
 
-- **Action-taking voice agents:** combine task completion with tool accuracy, live interaction quality, recovery, confirmation, and side-effect safety. VoiceAgentBench, EVA, TalkAct, and tau2-bench cover complementary parts of this stack.
-- **Voice typing and dictation:** combine ASR and streaming measures with semantic errors, entity accuracy, formatting, correction burden, and application insertion reliability. OpenBench and mu-bench are useful public starting points, but neither replaces product-specific desktop tests.
+- **Action-taking voice agents:** combine task completion with tool accuracy, live interaction quality, recovery, confirmation, and side-effect safety. VoiceAgentBench, Audio2Tool, EVA, TalkAct, tau2-bench, and the NVIDIA NeMo evaluation harness cover complementary parts of this stack; OpenBenchmarks adds a separately reproducible caller-latency layer.
+- **Voice typing and dictation:** combine ASR and streaming measures with semantic errors, entity accuracy, formatting, correction burden, and application insertion reliability. OpenBench and mu-bench are useful public starting points, while VoiceBench adds spoken instruction-following and reasoning coverage; none replaces product-specific desktop tests.
 - **Meeting transcription:** measure capture, diarization, transcript accuracy, and grounded meeting understanding separately. OpenBench and ELITR-Bench address different layers of this problem.
 
 The full [benchmark selection guide](https://github.com/Sophon-LLC/voice-agent-benchmark-landscape/blob/main/docs/CHOOSING_A_VOICE_AGENT_BENCHMARK.md) and [source audit](https://github.com/Sophon-LLC/voice-agent-benchmark-landscape/blob/main/docs/SOURCE_AUDIT.md) explain the tradeoffs and evidence behind each row.

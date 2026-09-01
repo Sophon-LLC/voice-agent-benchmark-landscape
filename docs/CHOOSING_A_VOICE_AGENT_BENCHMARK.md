@@ -13,9 +13,12 @@ The core outcome metric should be successful task completion. Speech recognition
 | Evaluation need | Useful public starting point | What it contributes |
 |---|---|---|
 | Spoken tool selection and structured arguments | [VoiceAgentBench](https://github.com/ola-krutrim/VoiceAgentBench) | Audio-backed tool-call tasks, multi-step orchestration, multi-turn context, and refusal behavior |
+| Tool-call robustness across intent complexity | [Audio2Tool](https://huggingface.co/datasets/RVtech/Audio2Tool) | Eight tiers spanning parameters, multi-intent commands, corrections, multi-turn context, and overlapping speech |
 | Complete live voice-agent conversations | [EVA](https://github.com/ServiceNow/eva) | Task accuracy and interaction-experience scoring across end-to-end spoken conversations |
 | Voice plus browser action | [VoiceComputerBench / TalkAct](https://github.com/19PINE-AI/TalkAct) | Real-time phone interaction coupled to Playwright-based browser tasks |
 | Dynamic user-agent-tool interaction | [tau2-bench / tau-Voice](https://github.com/sierra-research/tau2-bench) | Domain task success, tools, simulated users, and full-duplex voice evaluation |
+| Reproducible live harness over public domains | [NVIDIA NeMo Voice Agent Evaluation](https://github.com/NVIDIA-NeMo/labs-Voice-Agent) | Bot-to-bot audio runs, ported EVA and tau2 scenarios, state checks, and resumable artifacts |
+| Caller-perceived response latency | [OpenBenchmarks Voice Agent Latency](https://github.com/openbenchmarks-labs/voice-agent-latency) | Reproducible TTFAB measurement from real phone-call audio, with configurations and per-turn evidence |
 
 Recommended product-specific additions:
 
@@ -39,6 +42,7 @@ Word error rate is necessary but not sufficient. Users experience the complete e
 | Reproducible ASR and streaming tests | [OpenBench](https://github.com/argmaxinc/OpenBench) | Transcription pipelines, streaming measurements, datasets, and reproducible infrastructure |
 | Multilingual customer-service speech | [mu-bench](https://github.com/sierra-research/mu-bench) | Real 8 kHz utterances across five locales with WER, semantic error, and latency-oriented evaluation |
 | Broad audio understanding and spoken response quality | [VoiceAssistant-Eval](https://github.com/mathllm/VoiceAssistant-Eval) | Listening, speaking, robustness, multi-turn, and multimodal tasks; useful as an adjacent capability suite |
+| Spoken instruction following and reasoning | [VoiceBench](https://github.com/MatthewCYM/VoiceBench) | Public audio subsets for QA, instruction following, reasoning, safety, accents, and limited multi-turn testing |
 
 A practical voice-typing scorecard should include:
 
@@ -79,6 +83,17 @@ Recommended product-specific additions:
 - privacy controls, retention behavior, and participant consent.
 
 Transcript-only evaluation cannot reveal capture or diarization failures. Conversely, a low WER does not guarantee that summaries and action items are faithful.
+
+## What not to combine into one score
+
+Some measurements answer fundamentally different questions. Keep them visible as separate layers:
+
+- VoiceBench and VoiceAssistant-Eval primarily reveal what a model understands or produces; they do not prove that an action succeeded.
+- Audio2Tool and VoiceAgentBench reveal structured tool-call behavior; they do not execute every action against a live environment.
+- EVA, tau2, TalkAct, and the NVIDIA harness can evaluate end-to-end outcomes, but each uses specific domains and interaction assumptions.
+- OpenBenchmarks Voice Agent Latency measures how long a caller waits; its maintainers explicitly do not claim to measure answer quality or task success.
+
+A benchmark portfolio is stronger when each score retains its original meaning.
 
 ## A minimal layered evaluation plan
 
