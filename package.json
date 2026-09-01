@@ -1,6 +1,6 @@
 {
   "name": "voice-agent-benchmark-landscape",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "private": true,
   "description": "Structured map of public voice-agent and speech-assistant benchmarks",
   "type": "module",
