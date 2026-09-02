@@ -1,0 +1,49 @@
+name: Add or correct a benchmark
+description: Propose a source-backed addition or correction to the landscape.
+title: "[benchmark]: "
+body:
+  - type: dropdown
+    id: change
+    attributes:
+      label: Change type
+      options:
+        - Add a benchmark
+        - Correct an existing record
+    validations:
+      required: true
+  - type: input
+    id: record
+    attributes:
+      label: Benchmark or record name
+    validations:
+      required: true
+  - type: textarea
+    id: fields
+    attributes:
+      label: Exact fields to add or change
+      description: Use the names in data/schema.json and propose conservative values.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: First-party evidence
+      description: Link the official repository, dataset card, paper, or project documentation for each claim.
+    validations:
+      required: true
+  - type: textarea
+    id: license
+    attributes:
+      label: Code and data licenses
+      description: Link license files separately when code and data use different terms.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I am not submitting a commercial product directory entry or affiliate link.
+          required: true
+        - label: I have distinguished direct evaluation from partial or indirect coverage.
+          required: true

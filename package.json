@@ -4,8 +4,14 @@
   "private": true,
   "description": "Structured map of public voice-agent and speech-assistant benchmarks",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
-    "check": "node scripts/validate.mjs"
+    "check": "node scripts/validate.mjs",
+    "audit:links": "node scripts/audit-links.mjs",
+    "query": "node scripts/query.mjs",
+    "test": "npm run check && node --test"
   },
   "license": "MIT"
 }

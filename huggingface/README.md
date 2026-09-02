@@ -39,6 +39,30 @@ The full methodology, contribution guide, and validator are available in the [Gi
 
 Versioned releases are permanently archived on [Zenodo](https://doi.org/10.5281/zenodo.22227265). The current archived release is [v1.0.2](https://doi.org/10.5281/zenodo.22227266).
 
+Archived release date: `2026-09-01`.
+
+## Load and filter the data
+
+```python
+from datasets import load_dataset
+
+landscape = load_dataset(
+    "chatjesus/voice-agent-benchmark-landscape",
+    split="train",
+)
+
+# Spoken benchmarks that explicitly evaluate tool use.
+tool_use = landscape.filter(
+    lambda row: row["audio_input"] == "yes" and row["tool_use"] == "yes"
+)
+
+# Meeting or long-form starting points, preserving source URLs.
+meeting = landscape.filter(lambda row: row["meeting_or_long_form"] == "yes")
+print(meeting.select_columns(["name", "primary_focus", "github_url", "paper_url"]))
+```
+
+For shell workflows, the GitHub repository also includes a dependency-free query CLI with Markdown, JSON, JSONL, and CSV output.
+
 ## Fields
 
 - `id`, `name`, `primary_focus`

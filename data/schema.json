@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Voice Agent Benchmark Landscape record",
+  "description": "One source-audited benchmark record. Coverage values describe published evaluation scope, not product quality.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "primary_focus",
+    "audio_input",
+    "audio_output",
+    "multi_turn",
+    "tool_use",
+    "goal_completion",
+    "computer_or_browser_action",
+    "meeting_or_long_form",
+    "real_time",
+    "public_data",
+    "code_license",
+    "data_license",
+    "github_url",
+    "huggingface_url",
+    "paper_url",
+    "last_verified",
+    "evidence_notes"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "name": { "type": "string", "minLength": 1 },
+    "primary_focus": { "type": "string", "minLength": 1 },
+    "audio_input": { "$ref": "#/$defs/coverage" },
+    "audio_output": { "$ref": "#/$defs/coverage" },
+    "multi_turn": { "$ref": "#/$defs/coverage" },
+    "tool_use": { "$ref": "#/$defs/coverage" },
+    "goal_completion": { "$ref": "#/$defs/coverage" },
+    "computer_or_browser_action": { "$ref": "#/$defs/coverage" },
+    "meeting_or_long_form": { "$ref": "#/$defs/coverage" },
+    "real_time": { "$ref": "#/$defs/coverage" },
+    "public_data": { "$ref": "#/$defs/coverage" },
+    "code_license": { "type": "string", "minLength": 1 },
+    "data_license": { "type": "string", "minLength": 1 },
+    "github_url": {
+      "x-source-url": true,
+      "oneOf": [
+        { "type": "string", "format": "uri", "pattern": "^https://github\\.com/" },
+        { "type": "null" }
+      ]
+    },
+    "huggingface_url": {
+      "x-source-url": true,
+      "oneOf": [
+        { "type": "string", "format": "uri", "pattern": "^https://huggingface\\.co/" },
+        { "type": "null" }
+      ]
+    },
+    "paper_url": {
+      "x-source-url": true,
+      "oneOf": [
+        { "type": "string", "format": "uri", "pattern": "^https://(?:arxiv\\.org|github\\.com)/" },
+        { "type": "null" }
+      ]
+    },
+    "last_verified": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "evidence_notes": { "type": "string", "minLength": 1 }
+  },
+  "anyOf": [
+    { "properties": { "github_url": { "type": "string" } } },
+    { "properties": { "huggingface_url": { "type": "string" } } },
+    { "properties": { "paper_url": { "type": "string" } } }
+  ],
+  "$defs": {
+    "coverage": {
+      "type": "string",
+      "enum": ["yes", "no", "partial", "unclear"]
+    }
+  }
+}

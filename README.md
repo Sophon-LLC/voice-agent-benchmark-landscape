@@ -42,7 +42,7 @@ That gap is a useful research direction, not a claim that any existing benchmark
 
 ## Data
 
-The machine-readable source is [`data/benchmarks.jsonl`](data/benchmarks.jsonl). Each row records capability coverage, public assets, licenses, and evidence notes. The values are intentionally conservative:
+The machine-readable source is [`data/benchmarks.jsonl`](data/benchmarks.jsonl). Its stable field contract is documented in [`data/schema.json`](data/schema.json). Each row records capability coverage, public assets, licenses, and evidence notes. The values are intentionally conservative:
 
 - `yes`: explicitly supported or evaluated by the public source;
 - `no`: explicitly outside the published scope or not present in the available evaluation;
@@ -54,6 +54,36 @@ Run the validator with:
 ```bash
 npm run check
 ```
+
+Maintainers can also recheck every first-party source link. The auditor retries a failed `HEAD` with a limited `GET`, revalidates every redirect, and only contacts the approved source hosts represented by the dataset fields. Definitive `404` and `410` responses fail the audit; authentication, rate-limit, and transient server responses are reported separately instead of being mislabeled as broken. A weekly strict audit fails on warnings or when no source can be verified; pull requests never run network checks on contributor-controlled data.
+
+```bash
+npm run audit:links
+
+# Also fail on protected, rate-limited, or transiently unavailable sources
+npm run audit:links -- --strict
+```
+
+### Query the landscape
+
+The dependency-free CLI (Node.js 20 or newer) turns the repository into a reusable research input rather than a static list. Exact-match filters can be repeated, and results can be emitted as Markdown, JSON, JSONL, or spreadsheet-safe CSV.
+
+```bash
+# Benchmarks with spoken input and tool use
+npm run query -- --where audio_input=yes --where tool_use=yes
+
+# Public starting points for meeting and long-form evaluation
+npm run query -- \
+  --where meeting_or_long_form=yes \
+  --fields name,primary_focus,github_url,huggingface_url
+
+# Machine-readable candidates that exercise computer or browser action
+npm run query -- \
+  --where computer_or_browser_action=yes \
+  --format json
+```
+
+This is filtering, not ranking. The CLI does not combine incomparable benchmark metrics or invent a composite score.
 
 Versioned releases are permanently archived on [Zenodo](https://doi.org/10.5281/zenodo.22227265). Cite the version-specific DOI when exact reproducibility matters; use the concept DOI for the evolving project.
 
