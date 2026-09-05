@@ -68,17 +68,19 @@ npm run audit:links -- --strict
 
 The dependency-free CLI (Node.js 20 or newer) turns the repository into a reusable research input rather than a static list. Exact-match filters can be repeated, and results can be emitted as Markdown, JSON, JSONL, or spreadsheet-safe CSV.
 
+Use `--silent` when piping or saving output so npm does not prepend script logs.
+
 ```bash
 # Benchmarks with spoken input and tool use
-npm run query -- --where audio_input=yes --where tool_use=yes
+npm run --silent query -- --where audio_input=yes --where tool_use=yes
 
 # Public starting points for meeting and long-form evaluation
-npm run query -- \
+npm run --silent query -- \
   --where meeting_or_long_form=yes \
   --fields name,primary_focus,github_url,huggingface_url
 
 # Machine-readable candidates that exercise computer or browser action
-npm run query -- \
+npm run --silent query -- \
   --where computer_or_browser_action=yes \
   --format json
 ```

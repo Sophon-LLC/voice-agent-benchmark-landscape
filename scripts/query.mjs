@@ -83,7 +83,9 @@ export function help() {
   return `Query the Voice Agent Benchmark Landscape without installing dependencies.
 
 Usage:
-  npm run query -- [options]
+  npm run --silent query -- [options]
+
+Use --silent when piping or saving output so npm does not prepend script logs.
 
 Options:
   --where field=value     Exact-match filter; repeat to combine filters
@@ -93,9 +95,9 @@ Options:
   -h, --help              Show this help
 
 Examples:
-  npm run query -- --where audio_input=yes --where tool_use=yes
-  npm run query -- --where meeting_or_long_form=yes --fields name,github_url,huggingface_url
-  npm run query -- --where computer_or_browser_action=yes --format json`;
+  npm run --silent query -- --where audio_input=yes --where tool_use=yes
+  npm run --silent query -- --where meeting_or_long_form=yes --fields name,github_url,huggingface_url
+  npm run --silent query -- --where computer_or_browser_action=yes --format json`;
 }
 
 async function main() {
